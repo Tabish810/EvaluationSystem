@@ -1,0 +1,34 @@
+[nz-form] {
+    max-width: 600px;
+  }
+  .buttonGroups{
+    margin-left:29%;
+  }
+  button {
+    margin-left: 8px;
+  }
+  h1{
+    margin-left: 7%;
+}
+@media only screen and (max-width: 870px) {
+   h1, input, nz-input-number{
+    display: block !important;
+  }
+  .buttonGroups{
+    margin-left:29% !important;
+  }
+  nz-form-label{
+    display: block;
+  }
+  
+}
+@media only screen and (max-width: 590px) {
+  nz-form-label{
+    display: block !important;
+    width: 100% !important;
+    text-align: inherit;
+  }
+  .buttonGroups{
+    margin-left:0% !important;
+  }
+ }

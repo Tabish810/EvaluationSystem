@@ -1,0 +1,59 @@
+<h2>Add Teacher</h2>
+<form nz-form [formGroup]="validateTeacherForm" (ngSubmit)="submitTeacherForm($event,validateTeacherForm.value)">
+  <nz-form-item>
+    <nz-form-label [nzSpan]="7" nzRequired>Teacher Name</nz-form-label>
+    <nz-form-control [nzSpan]="12">
+      <input formControlName="teacher_name" nz-input rows="2" placeholder="Write course name">
+      <nz-form-explain *ngIf="validateTeacherForm.get('teacher_name').dirty&&validateTeacherForm.get('teacher_name').hasError('required')">
+        Wirte Teacher's Name Here !</nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="7" nzRequired>Father's Name</nz-form-label>
+    <nz-form-control [nzSpan]="12">
+      <input formControlName="fname" nz-input rows="2" placeholder="Write Father's Name">
+      <nz-form-explain *ngIf="validateTeacherForm.get('fname').dirty&&validateTeacherForm.get('fname').hasError('required')">
+        Wirte Father's Name</nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="7" nzFor="designation" nzRequired>Designation</nz-form-label>
+    <nz-form-control [nzSpan]="12">
+      <nz-select id="designation" formControlName="designation" nzPlaceHolder="Select Designation">
+        <nz-option nzValue="Professor" nzLabel="Professor"></nz-option>
+        <nz-option nzValue="Assistant Professor" nzLabel="Assistant Professor"></nz-option>
+        <nz-option nzValue="Lecture" nzLabel="Lecture"></nz-option>
+      </nz-select>
+      <nz-form-explain *ngIf="validateTeacherForm.get('designation').dirty && validateTeacherForm.get('designation').errors">Please
+        Select Designation</nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="7" nzRequired>Qualification</nz-form-label>
+    <nz-form-control [nzSpan]="12">
+      <input formControlName="qualification" nz-input rows="2" placeholder="Write qualification">
+      <nz-form-explain *ngIf="validateTeacherForm.get('qualification').dirty&&validateTeacherForm.get('qualification').hasError('required')">
+        Wirte Qualification Here</nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="7" nzRequired>Contact Number</nz-form-label>
+    <nz-form-control [nzSpan]="12">
+      <!-- <nz-input-number [nzSize]="'large'" formControlName="contact_no" [nzMin]="1" [nzStep]="1"></nz-input-number> -->
+      <input formControlName="contact_no" nz-input rows="2" placeholder="eg : 03101234567, +923101234567
+      ">
+      <nz-form-explain *ngIf="validateTeacherForm.get('contact_no').dirty&&validateTeacherForm.get('contact_no').hasError('required')">
+        Wirte Contact Number Here</nz-form-explain>
+      <nz-form-explain *ngIf="validateTeacherForm.get('contact_no').dirty&&validateTeacherForm.get('contact_no').hasError('number')">
+      Number doesn't matched</nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control [nzOffset]="7" [nzSpan]="12">
+      <button nz-button nzType="primary" [disabled]="!validateTeacherForm.valid">Submit</button>
+      <button nz-button (click)="resetForm($event)">Reset</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>

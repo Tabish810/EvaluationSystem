@@ -1,0 +1,71 @@
+<div nz-row>
+  <h2>Course Details</h2>
+  <div nz-col nzSpan="2"></div>
+  <div nz-col nzSpan="22">
+    <nz-table #editRowTable nzBordered [nzData]="dataSet" [nzPageSize]="9" [nzScroll]="{x:'1000px'}" class="course-details-table table-responsive">
+      <thead>
+        <tr>
+          <th nzWidth="20%">Course Title</th>
+          <th nzWidth="10%">Course Number </th>
+          <th nzWidth="10%">Class</th>
+          <th nzWidth="15%">Semister</th>
+          <th nz-Width="10%">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of editRowTable.data; index as i">
+          <td>
+            <div class="editable-cell">
+              <div class="editable-cell-text-wrapper">
+                <ng-container *ngIf="!editCache[data.key].edit">
+                  {{data.courseTitle}}
+                </ng-container>
+                <ng-container *ngIf="editCache[data.key].edit">
+                  <input type="text" nz-input [(ngModel)]="editCache[data.key].data.courseTitle">
+                </ng-container>
+              </div>
+            </div>
+          </td>
+          <td>
+            <ng-container *ngIf="!editCache[data.key].edit">
+              {{data.courseNumber}}
+            </ng-container>
+            <ng-container *ngIf="editCache[data.key].edit">
+              <input type="text" nz-input [(ngModel)]="editCache[data.key].data.courseNumber">
+            </ng-container>
+          </td>
+          <td>
+            <ng-container *ngIf="!editCache[data.key].edit">
+              {{data.Class}}
+            </ng-container>
+            <ng-container *ngIf="editCache[data.key].edit">
+              <input type="text" nz-input [(ngModel)]="editCache[data.key].data.Class">
+            </ng-container>
+          </td>
+          <td>
+            <ng-container *ngIf="!editCache[data.key].edit">
+              {{data.Semister}}
+            </ng-container>
+            <ng-container *ngIf="editCache[data.key].edit">
+              <input type="text" nz-input [(ngModel)]="editCache[data.key].data.Semister">
+            </ng-container>
+          </td>
+          <td>
+            <div class="editable-row-operations">
+              <ng-container *ngIf="!editCache[data.key].edit">
+                <a (click)="startEdit(data.key)">Edit</a>
+              </ng-container>
+              <ng-container *ngIf="deleteBtn">
+                <a  (click)="showDeleteConfirm($event,data,i)">Delete</a>
+              </ng-container>
+              <ng-container *ngIf="editCache[data.key].edit">
+                <a (click)="saveEdit(data.key)" class="saveBtn">Save</a>
+                <a (click)="cancelEdit(data.key)">Cancel</a>
+              </ng-container>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</div>

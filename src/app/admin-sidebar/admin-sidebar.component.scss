@@ -1,0 +1,38 @@
+.ant-menu-item-active, .ant-menu-item:hover, 
+.ant-menu-submenu-active, .ant-menu-submenu-title:hover,
+.ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open,
+
+.ant-menu-item-selected, .ant-menu-item-selected>a, 
+.ant-menu-item-selected>a:hover,
+{
+    color: #37a000;
+    outline: none !important;
+}
+nz-menu{
+    nz-submenu{
+        :hover{
+            color: #37a000 !important;
+        }   
+    }
+}
+.ant-menu-item::after{
+    border-right-color: #37a000;
+}
+.side-bar{
+    background:#fff;
+}
+nz-sider{
+    ul{
+        // margin: 0;
+        // padding: 0;
+        li{
+            text-align: center;
+            :focus{
+                outline: none !important;
+            }
+        }
+    }
+}
+li.ant-menu-item.ant-menu-item-selected{
+    outline: none !important;
+}

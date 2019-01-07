@@ -1,0 +1,86 @@
+<div nz-row>
+  <h2>Teacher Details</h2>
+  <div nz-col nzSpan="2">
+
+  </div>
+
+  <div nz-col nzSpan="22">
+    <nz-table #editRowTable nzBordered [nzData]="dataSet" [nzPageSize]="9" [nzScroll]="{x:'1000px'}" class="course-details-table">
+      <thead>
+        <tr valign="middle">
+          <th nzWidth="15%">Name</th>
+          <th nzWidth="15%">Father Name</th>
+          <th nzWidth="15%">Designation</th>
+          <th nzWidth="15%">Qualification</th>
+          <th nzWidth="15%">Contact Number</th>
+          <th nzWidth="15%">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of editRowTable.data">
+          <td>
+            <div class="editable-cell">
+              <div class="editable-cell-text-wrapper">
+                <ng-container *ngIf="!editCache[data.key].edit">
+                  {{data.teacher_name}}
+                </ng-container>
+                <ng-container *ngIf="editCache[data.key].edit">
+                  <input type="text" nz-input [(ngModel)]="editCache[data.key].data.teacher_name">
+                </ng-container>
+              </div>
+            </div>
+          </td>
+          <td>
+            <ng-container *ngIf="!editCache[data.key].edit">
+              {{data.father_name}}
+            </ng-container>
+            <ng-container *ngIf="editCache[data.key].edit">
+              <input type="text" nz-input [(ngModel)]="editCache[data.key].data.father_name">
+            </ng-container>
+          </td>
+          <td>
+            <ng-container *ngIf="!editCache[data.key].edit">
+              {{data.designation}}
+            </ng-container>
+            <ng-container *ngIf="editCache[data.key].edit">
+              <input type="text" nz-input [(ngModel)]="editCache[data.key].data.designation">
+            </ng-container>
+          </td>
+          <td>
+            <ng-container *ngIf="!editCache[data.key].edit">
+              {{data.qualification}}
+            </ng-container>
+            <ng-container *ngIf="editCache[data.key].edit">
+              <input type="text" nz-input [(ngModel)]="editCache[data.key].data.qualification">
+            </ng-container>
+          </td>
+          <td>
+            <ng-container *ngIf="!editCache[data.key].edit">
+              {{data.contact_number}}
+            </ng-container>
+            <ng-container *ngIf="editCache[data.key].edit">
+              <input type="text" nz-input [(ngModel)]="editCache[data.key].data.contact_number">
+            </ng-container>
+          </td>
+          <td>
+            <div class="editable-row-operations">
+              <ng-container *ngIf="!editCache[data.key].edit">
+                <a (click)="startEdit(data.key)" class="saveBtn">Edit</a>
+              </ng-container>
+              <ng-container *ngIf="deleteBtn">
+                <a (click)="showDeleteConfirm($event,data,i)">Delete</a>
+              </ng-container>
+              <ng-container *ngIf="editCache[data.key].edit">
+                <a (click)="saveEdit(data.key)" class="saveBtn">Save</a>
+                <!-- <nz-popconfirm [nzTitle]="'Sure to cancel?'" (nzOnConfirm)="cancelEdit(data.key)">
+                  <a nz-popconfirm>Cancel</a>
+                </nz-popconfirm> -->
+                <a (click)="cancelEdit(data.key)">Cancel</a>
+              </ng-container>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</div>

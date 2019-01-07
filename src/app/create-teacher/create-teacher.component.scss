@@ -1,0 +1,26 @@
+button {
+    margin-left: 8px;
+  }
+  h2{
+    margin-left: 8%;
+}
+@media only screen and (max-width: 870px) {
+  h1, input, nz-input-number{
+   display: block !important;
+  
+ }
+ nz-form-label{
+   display: block;
+ }
+ 
+}
+@media only screen and (max-width: 590px) {
+ nz-form-label{
+   display: block !important;
+   width: 100% !important;
+   text-align: inherit;
+ }
+ .ant-col-offset-7{
+   margin-left: 0% !important;
+ }
+}

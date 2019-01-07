@@ -1,0 +1,11 @@
+.ant-col-6{
+    background:#fff;
+}
+.side-bar{
+    margin-top: 3%;
+}
+@media only screen and (max-width: 870px) {
+    app-admin-sidebar {
+        display:none;
+    }
+}

@@ -1,0 +1,19 @@
+<!-- NG-ZORRO -->
+
+<!-- <app-root></app-root>
+ -->
+<div class="main">
+    <div  nz-row >
+        <app-header></app-header>
+    </div>
+    <div nz-row class="side-bar">
+        <div nz-col nzSpan="4" class="side-bar-admin">
+            <app-admin-sidebar></app-admin-sidebar>
+        </div>
+        <div nz-col nzSpan="19">
+            <router-outlet></router-outlet>
+        </div>
+        <div nz-col nzSpan="1"></div>
+     
+    </div>
+</div>
